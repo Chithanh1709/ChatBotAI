@@ -30,7 +30,7 @@ class ProductEmbedder:
     
     def load_and_validate_data(self):
         """Đọc và validate dữ liệu"""
-        print(f"📖 Đang đọc dữ liệu từ {self.chunks_file}...")
+        print(f" Đang đọc dữ liệu từ {self.chunks_file}...")
         with open(self.chunks_file, "r", encoding="utf-8") as f:
             data = json.load(f)
         
@@ -40,14 +40,14 @@ class ProductEmbedder:
             if isinstance(item, dict) and "text" in item:
                 validated_data.append(item)
             else:
-                print(f"⚠️  Cảnh báo: Item {i} không đúng format")
+                print(f"  Cảnh báo: Item {i} không đúng format")
         
         print(f"✅ Đã validate {len(validated_data)} chunks")
         return validated_data
     
     def encode_in_batches(self, texts, batch_size=32):
         """Encode với batch processing tối ưu"""
-        print("🧠 Đang nhúng văn bản...")
+        print(" Đang nhúng văn bản...")
         all_embeddings = []
         
         for i in tqdm(range(0, len(texts), batch_size)):
