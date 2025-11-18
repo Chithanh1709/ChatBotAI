@@ -31,7 +31,7 @@ MEGALLM_MODEL_NAME = "gpt-4"
 # === CẤU HÌNH KHÁC ===
 CHROMA_DB_PATH = "D:/chroma_food_rag"
 COLLECTION_NAME = "food_products_vn"
-PRODUCT_BASE_URL = "http://localhost:4200/products"
+PRODUCT_BASE_URL = "http://localhost:4200/product"
 
 def initialize_megallm_client():
     """Cấu hình MegaLLM client"""
