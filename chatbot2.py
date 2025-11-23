@@ -338,7 +338,13 @@ class ChatBot:
 
             # Tìm kiếm trong database
             logger.info("Searching in vector database...")
-            docs = self.vector_store.similarity_search(question_str, k=3)
+            vector_store = Chroma(
+            persist_directory=CHROMA_DB_PATH,
+            embedding_function=self.vector_store._embedding_function,
+            collection_name=COLLECTION_NAME
+            )
+
+            docs = vector_store.similarity_search(question_str, k=3)
             logger.info(f"Found {len(docs)} relevant documents")
 
             # Nếu không tìm thấy tài liệu phù hợp → yêu cầu cụ thể hơn
